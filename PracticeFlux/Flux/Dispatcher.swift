@@ -1,5 +1,5 @@
 //
-//  ActionCreator.swift
+//  Dispatcher.swift
 //  PracticeFlux
 //
 //  Created by 河明宗 on 2021/01/08.
@@ -7,9 +7,7 @@
 //
 
 import Foundation
-import GitHub
 
-enum Action {
-    case addRepositories([Repository])
-    case clearRepositories
+final class Dispatcher {
+    func dispatch(_ action: Action) {}
 }

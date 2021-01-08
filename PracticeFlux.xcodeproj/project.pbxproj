@@ -17,6 +17,8 @@
 		AF37860625A7388B0077C94C /* PracticeFluxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37860525A7388B0077C94C /* PracticeFluxUITests.swift */; };
 		AF37861425A889270077C94C /* ActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37861325A889270077C94C /* ActionCreator.swift */; };
 		AF37861625A889810077C94C /* GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF37861525A889810077C94C /* GitHub.framework */; };
+		AF37861825A88A5E0077C94C /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37861725A88A5E0077C94C /* Dispatcher.swift */; };
+		AF37861C25A88BBC0077C94C /* GitHubApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37861B25A88BBC0077C94C /* GitHubApiSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		AF37860725A7388B0077C94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF37861325A889270077C94C /* ActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCreator.swift; sourceTree = "<group>"; };
 		AF37861525A889810077C94C /* GitHub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GitHub.framework; sourceTree = "<group>"; };
+		AF37861725A88A5E0077C94C /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		AF37861B25A88BBC0077C94C /* GitHubApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		AF3785DF25A7388A0077C94C /* PracticeFlux */ = {
 			isa = PBXGroup;
 			children = (
+				AF37861925A88B770077C94C /* Flux */,
+				AF37861A25A88B9D0077C94C /* GitHub */,
 				AF3785E025A7388A0077C94C /* AppDelegate.swift */,
 				AF3785E225A7388A0077C94C /* SceneDelegate.swift */,
 				AF3785E425A7388A0077C94C /* ViewController.swift */,
@@ -112,7 +118,6 @@
 				AF3785EE25A7388B0077C94C /* LaunchScreen.storyboard */,
 				AF3785F125A7388B0077C94C /* Info.plist */,
 				AF3785E925A7388A0077C94C /* PracticeFlux.xcdatamodeld */,
-				AF37861325A889270077C94C /* ActionCreator.swift */,
 			);
 			path = PracticeFlux;
 			sourceTree = "<group>";
@@ -133,6 +138,23 @@
 				AF37860725A7388B0077C94C /* Info.plist */,
 			);
 			path = PracticeFluxUITests;
+			sourceTree = "<group>";
+		};
+		AF37861925A88B770077C94C /* Flux */ = {
+			isa = PBXGroup;
+			children = (
+				AF37861325A889270077C94C /* ActionCreator.swift */,
+				AF37861725A88A5E0077C94C /* Dispatcher.swift */,
+			);
+			path = Flux;
+			sourceTree = "<group>";
+		};
+		AF37861A25A88B9D0077C94C /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				AF37861B25A88BBC0077C94C /* GitHubApiSession.swift */,
+			);
+			path = GitHub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +289,8 @@
 			files = (
 				AF37861425A889270077C94C /* ActionCreator.swift in Sources */,
 				AF3785E525A7388A0077C94C /* ViewController.swift in Sources */,
+				AF37861825A88A5E0077C94C /* Dispatcher.swift in Sources */,
+				AF37861C25A88BBC0077C94C /* GitHubApiSession.swift in Sources */,
 				AF3785E125A7388A0077C94C /* AppDelegate.swift in Sources */,
 				AF3785E325A7388A0077C94C /* SceneDelegate.swift in Sources */,
 				AF3785EB25A7388A0077C94C /* PracticeFlux.xcdatamodeld in Sources */,

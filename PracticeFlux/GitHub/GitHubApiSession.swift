@@ -10,5 +10,5 @@ import Foundation
 import GitHub
 
 protocol GitHubApiRequestable: AnyObject {
-    func searchRepository(query: String, page: Int, completion: @escaping (Result<([GitHub.Repository], GitHub.Pagination)>) -> ())
+    func searchRepositories(query: String, page: Int, completion: @escaping (Result<([GitHub.Repository], GitHub.Pagination)>) -> ())
 }
