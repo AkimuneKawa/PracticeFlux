@@ -15,6 +15,7 @@
 		AF3785F025A7388B0077C94C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3785EE25A7388B0077C94C /* LaunchScreen.storyboard */; };
 		AF3785FB25A7388B0077C94C /* PracticeFluxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3785FA25A7388B0077C94C /* PracticeFluxTests.swift */; };
 		AF37860625A7388B0077C94C /* PracticeFluxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37860525A7388B0077C94C /* PracticeFluxUITests.swift */; };
+		AF37861625A889810077C94C /* GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF37861525A889810077C94C /* GitHub.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AF37860125A7388B0077C94C /* PracticeFluxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeFluxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF37860525A7388B0077C94C /* PracticeFluxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeFluxUITests.swift; sourceTree = "<group>"; };
 		AF37860725A7388B0077C94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF37861525A889810077C94C /* GitHub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GitHub.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF37861625A889810077C94C /* GitHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,7 @@
 		AF3785D425A7388A0077C94C = {
 			isa = PBXGroup;
 			children = (
+				AF37861525A889810077C94C /* GitHub.framework */,
 				AF3785DF25A7388A0077C94C /* PracticeFlux */,
 				AF3785F925A7388B0077C94C /* PracticeFluxTests */,
 				AF37860425A7388B0077C94C /* PracticeFluxUITests */,
@@ -427,6 +431,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PracticeFlux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +452,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PracticeFlux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
