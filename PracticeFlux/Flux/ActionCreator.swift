@@ -33,4 +33,8 @@ final class ActionCreator {
             }
         }
     }
+    
+    func clearRepositories() {
+        dispacher.dispatch(.clearRepositories)
+    }
 }
