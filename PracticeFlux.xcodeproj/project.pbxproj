@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		AF1EB4F925AB1245009AEFF9 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1EB4F825AB1245009AEFF9 /* Store.swift */; };
 		AF1EB4FB25AC9768009AEFF9 /* SearchRepositoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1EB4FA25AC9768009AEFF9 /* SearchRepositoryStore.swift */; };
 		AF1EB4FD25ADEA2E009AEFF9 /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1EB4FC25ADEA2E009AEFF9 /* RepositorySearchViewController.swift */; };
+		AF1EB50125B06A6D009AEFF9 /* GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF37861525A889810077C94C /* GitHub.framework */; };
+		AF1EB50225B06A6D009AEFF9 /* GitHub.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF37861525A889810077C94C /* GitHub.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AF3785E125A7388A0077C94C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3785E025A7388A0077C94C /* AppDelegate.swift */; };
 		AF3785E325A7388A0077C94C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3785E225A7388A0077C94C /* SceneDelegate.swift */; };
 		AF3785E525A7388A0077C94C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3785E425A7388A0077C94C /* ViewController.swift */; };
@@ -21,7 +23,6 @@
 		AF3785FB25A7388B0077C94C /* PracticeFluxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3785FA25A7388B0077C94C /* PracticeFluxTests.swift */; };
 		AF37860625A7388B0077C94C /* PracticeFluxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37860525A7388B0077C94C /* PracticeFluxUITests.swift */; };
 		AF37861425A889270077C94C /* ActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37861325A889270077C94C /* ActionCreator.swift */; };
-		AF37861625A889810077C94C /* GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF37861525A889810077C94C /* GitHub.framework */; };
 		AF37861825A88A5E0077C94C /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37861725A88A5E0077C94C /* Dispatcher.swift */; };
 		AF37861C25A88BBC0077C94C /* GitHubApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37861B25A88BBC0077C94C /* GitHubApiSession.swift */; };
 		CA283F1EBFC593095A00A0CE /* Pods_PracticeFlux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA7823FD7746865351ADC35 /* Pods_PracticeFlux.framework */; };
@@ -43,6 +44,20 @@
 			remoteInfo = PracticeFlux;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AF1EB50325B06A6D009AEFF9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AF1EB50225B06A6D009AEFF9 /* GitHub.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		237DE9F11662373E7923418B /* Pods-PracticeFlux-PracticeFluxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeFlux-PracticeFluxUITests.debug.xcconfig"; path = "Target Support Files/Pods-PracticeFlux-PracticeFluxUITests/Pods-PracticeFlux-PracticeFluxUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,8 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF37861625A889810077C94C /* GitHub.framework in Frameworks */,
 				CA283F1EBFC593095A00A0CE /* Pods_PracticeFlux.framework in Frameworks */,
+				AF1EB50125B06A6D009AEFF9 /* GitHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +131,6 @@
 				9FF4F420552BF453211115E6 /* Pods-PracticeFluxTests.debug.xcconfig */,
 				EA330E5EDB3AC66AEE0D4725 /* Pods-PracticeFluxTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -219,6 +233,7 @@
 				AF3785DA25A7388A0077C94C /* Frameworks */,
 				AF3785DB25A7388A0077C94C /* Resources */,
 				469233EDF38D6BAC14F52652 /* [CP] Embed Pods Frameworks */,
+				AF1EB50325B06A6D009AEFF9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
