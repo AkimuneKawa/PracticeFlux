@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import GitHub
+import SnapKit
 
 final class RepositorySearchViewController: UIViewController, UISearchBarDelegate {
     private let tableView = UITableView()
@@ -49,10 +50,15 @@ final class RepositorySearchViewController: UIViewController, UISearchBarDelegat
     private func setupViews() {
         searchController.searchBar.delegate = self
         _ = reloadSubscription
+        
+        navigationItem.searchController = searchController
+        view.addSubview(tableView)
     }
     
     private func setupConstraints() {
-        
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
