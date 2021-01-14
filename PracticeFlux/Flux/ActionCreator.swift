@@ -18,7 +18,10 @@ final class ActionCreator {
     private let dispacher: Dispatcher
     private let apiSession: GitHubApiRequestable
     
-    init(dispacher: Dispatcher, apiSession: GitHubApiRequestable) {
+    init(
+        dispacher: Dispatcher = .shared,
+        apiSession: GitHubApiRequestable = GitHubApiSession.shared
+    ) {
         self.dispacher = dispacher
         self.apiSession = apiSession
     }

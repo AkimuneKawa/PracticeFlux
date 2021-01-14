@@ -28,7 +28,7 @@ class Store {
         dispatcher.unregister(dispatchToken)
     }
     
-    init(dispatcher: Dispatcher) {
+    init(dispatcher: Dispatcher = .shared) {
         self.dispatcher = dispatcher
         self.notificationCenter = NotificationCenter()
         _ = dispatchToken
