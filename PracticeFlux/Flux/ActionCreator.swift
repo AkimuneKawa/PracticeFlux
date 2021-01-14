@@ -29,7 +29,7 @@ final class ActionCreator {
     func searchRepositories(query: String, page: Int) {
         apiSession.searchRepositories(query: query, page: page) { [dispacher] result in
             switch result {
-            case let .success(repositories, _):
+            case let .success((repositories, _)):
                 dispacher.dispatch(.addRepositories(repositories))
             case let .failure(error):
                 print(error)
