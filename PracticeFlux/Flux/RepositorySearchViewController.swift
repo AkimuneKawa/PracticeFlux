@@ -10,9 +10,13 @@ import Foundation
 import UIKit
 import GitHub
 import SnapKit
+import Then
 
 final class RepositorySearchViewController: UIViewController, UISearchBarDelegate {
-    private let tableView = UITableView()
+    private let tableView = UITableView().then {
+        $0.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.Const.identifier)
+        $0.rowHeight = RepositoryCell.Const.cellHeight
+    }
     private let searchController = UISearchController()
     
     private let searchStore: SearchRepositoryStore
