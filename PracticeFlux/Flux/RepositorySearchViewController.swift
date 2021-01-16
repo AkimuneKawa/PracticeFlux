@@ -12,7 +12,7 @@ import GitHub
 import SnapKit
 import Then
 
-final class RepositorySearchViewController: UIViewController, UISearchBarDelegate {
+final class RepositorySearchViewController: UIViewController {
     private let tableView = UITableView().then {
         $0.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.Const.identifier)
         $0.rowHeight = RepositoryCell.Const.cellHeight
@@ -53,6 +53,7 @@ final class RepositorySearchViewController: UIViewController, UISearchBarDelegat
     
     private func setupViews() {
         searchController.searchBar.delegate = self
+        tableView.dataSource = self
         _ = reloadSubscription
         
         navigationItem.searchController = searchController
@@ -64,11 +65,27 @@ final class RepositorySearchViewController: UIViewController, UISearchBarDelegat
             $0.edges.equalToSuperview()
         }
     }
-    
+}
+
+extension RepositorySearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text, !text.isEmpty {
             actionCreator.clearRepositories()
             actionCreator.searchRepositories(query: text, page: 1)
         }
+    }
+}
+
+extension RepositorySearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchStore.repositories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.Const.identifier) as! RepositoryCell
+        
+        cell.inject(repository: searchStore.repositories[indexPath.row])
+        
+        return cell
     }
 }
