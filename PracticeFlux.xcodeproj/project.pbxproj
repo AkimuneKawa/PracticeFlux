@@ -136,6 +136,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AF1EB50625B32B51009AEFF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF1EB50725B32B5B009AEFF9 /* Pages */,
+				AF1EB50825B32B64009AEFF9 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AF1EB50725B32B5B009AEFF9 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				AF1EB4FC25ADEA2E009AEFF9 /* RepositorySearchViewController.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		AF1EB50825B32B64009AEFF9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AF1EB50425B31978009AEFF9 /* RepositoryCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		AF3785D425A7388A0077C94C = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +187,7 @@
 		AF3785DF25A7388A0077C94C /* PracticeFlux */ = {
 			isa = PBXGroup;
 			children = (
+				AF1EB50625B32B51009AEFF9 /* Views */,
 				AF37861925A88B770077C94C /* Flux */,
 				AF37861A25A88B9D0077C94C /* GitHub */,
 				AF3785E025A7388A0077C94C /* AppDelegate.swift */,
@@ -200,8 +226,6 @@
 				AF37861725A88A5E0077C94C /* Dispatcher.swift */,
 				AF1EB4F825AB1245009AEFF9 /* Store.swift */,
 				AF1EB4FA25AC9768009AEFF9 /* SearchRepositoryStore.swift */,
-				AF1EB4FC25ADEA2E009AEFF9 /* RepositorySearchViewController.swift */,
-				AF1EB50425B31978009AEFF9 /* RepositoryCell.swift */,
 			);
 			path = Flux;
 			sourceTree = "<group>";
