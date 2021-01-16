@@ -12,6 +12,7 @@ import GitHub
 enum Action {
     case addRepositories([Repository])
     case clearRepositories
+    case setSelectedRepository(Repository)
 }
 
 final class ActionCreator {
@@ -25,7 +26,11 @@ final class ActionCreator {
         self.dispacher = dispacher
         self.apiSession = apiSession
     }
-    
+}
+
+// MARK: Search
+
+extension ActionCreator {
     func searchRepositories(query: String, page: Int) {
         apiSession.searchRepositories(query: query, page: page) { [dispacher] result in
             switch result {
@@ -39,5 +44,13 @@ final class ActionCreator {
     
     func clearRepositories() {
         dispacher.dispatch(.clearRepositories)
+    }
+}
+
+// MARK: Others
+
+extension ActionCreator {
+    func setSearchRepository(_ repository: Repository) {
+        dispacher.dispatch(.setSelectedRepository(repository))
     }
 }
