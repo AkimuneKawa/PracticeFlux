@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import WebKit
+import SnapKit
 
 final class RepositoryDetailViewController: UIViewController {
     private let configuration = WKWebViewConfiguration()
@@ -27,7 +28,19 @@ final class RepositoryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+        setupConstraints()
+    }
+    
+    private func setupViews() {
         guard let repository = detailStore.repository else { return }
         webview.load(URLRequest(url: repository.htmlURL))
+        view.addSubview(webview)
+    }
+    
+    private func setupConstraints() {
+        webview.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }

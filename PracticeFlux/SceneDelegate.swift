@@ -11,7 +11,27 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    private let actionCreator = ActionCreator()
+    private let searchStore = SearchRepositoryStore()
+    private let detailStore = RepositoryDetailStore.shared
+    
+    private lazy var showRepositoryDetailSubscription: Subscription = {
+        return detailStore.addListner { [weak self] in
+            DispatchQueue.main.async {
+                guard
+                    let self = self,
+                    self.detailStore.repository != nil,
+                    let rootVC = self.window?.rootViewController,
+                    let tbc = rootVC as? UITabBarController,
+                    let selectedVC = tbc.selectedViewController,
+                    let nc = selectedVC as? UINavigationController
+                    else { return }
+                let vc = RepositoryDetailViewController()
+                nc.pushViewController(vc, animated: true)
+            }
+        }
+    }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -20,14 +40,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let actionCreator = ActionCreator()
-        let store = SearchRepositoryStore()
+        let tabBarController = UITabBarController()
+        let tabs: [(UINavigationController, UITabBarItem.SystemItem)] = [
+            (UINavigationController(rootViewController: RepositorySearchViewController(searchStore: searchStore, actionCreator: actionCreator)), .search),
+            (UINavigationController(rootViewController: RepositorySearchViewController(searchStore: searchStore, actionCreator: actionCreator)), .search)
+        ]
+        tabs.enumerated().forEach {
+            $0.element.0.tabBarItem = UITabBarItem(tabBarSystemItem: $0.element.1, tag: $0.offset)
+        }
+        tabBarController.setViewControllers(tabs.map { $0.0 }, animated: false)
         
-        let vc = RepositorySearchViewController(searchStore: store, actionCreator: actionCreator)
-        let navigationController = UINavigationController(rootViewController: vc)
-        
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+        _ = showRepositoryDetailSubscription
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

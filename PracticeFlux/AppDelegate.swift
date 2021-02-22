@@ -11,30 +11,8 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-    private let detailStore = RepositoryDetailStore.shared
-    
-    private lazy var showRepositoryDetailSubscription: Subscription = {
-        return detailStore.addListner { [weak self] in
-            DispatchQueue.main.async {
-                guard
-                    let self = self,
-                    self.detailStore.repository != nil,
-                    let rootVC = self.window?.rootViewController,
-                    let tbc = rootVC as? UITabBarController,
-                    let selectedVC = tbc.selectedViewController,
-                    let nc = selectedVC as? UINavigationController
-                    else { return }
-                let vc = RepositoryDetailViewController()
-                nc.pushViewController(vc, animated: true)
-            }
-        }
-    }()
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        _ = showRepositoryDetailSubscription
         return true
     }
 
