@@ -43,8 +43,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         let tabs: [(UINavigationController, UITabBarItem.SystemItem)] = [
-            (UINavigationController(rootViewController: RepositorySearchViewController(searchStore: searchStore, actionCreator: actionCreator)), .search),
-            (UINavigationController(rootViewController: RepositorySearchViewController(searchStore: searchStore, actionCreator: actionCreator)), .favorites)
+            (UINavigationController(rootViewController: RepositorySearchViewController(actionCreator: actionCreator)), .search),
+            (UINavigationController(rootViewController: FavoriteRepositoryViewController(actionCreator: actionCreator)), .favorites)
         ]
         tabs.enumerated().forEach {
             $0.element.0.tabBarItem = UITabBarItem(tabBarSystemItem: $0.element.1, tag: $0.offset)
