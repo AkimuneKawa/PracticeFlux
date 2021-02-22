@@ -13,8 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     private let actionCreator = ActionCreator()
-    private let searchStore = SearchRepositoryStore()
+    private let searchStore = SearchRepositoryStore.shared
     private let detailStore = RepositoryDetailStore.shared
+    private let favoriteStore = FavoriteRepositoryStore.shared
     
     private lazy var showRepositoryDetailSubscription: Subscription = {
         return detailStore.addListner { [weak self] in
@@ -27,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let selectedVC = tbc.selectedViewController,
                     let nc = selectedVC as? UINavigationController
                     else { return }
-                let vc = RepositoryDetailViewController()
+                let vc = RepositoryDetailViewController(actionCreator: self.actionCreator)
                 nc.pushViewController(vc, animated: true)
             }
         }
