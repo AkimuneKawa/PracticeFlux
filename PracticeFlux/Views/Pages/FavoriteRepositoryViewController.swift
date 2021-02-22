@@ -51,6 +51,7 @@ final class FavoriteRepositoryViewController: UIViewController {
     private func setupViews() {
         view.addSubview(tableView)
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func setupConstraints() {
@@ -71,5 +72,11 @@ extension FavoriteRepositoryViewController: UITableViewDataSource {
         cell.inject(repository: favoriteStore.repositories[indexPath.row])
         
         return cell
+    }
+}
+
+extension FavoriteRepositoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        actionCreator.setSearchRepository(favoriteStore.repositories[indexPath.row])
     }
 }
