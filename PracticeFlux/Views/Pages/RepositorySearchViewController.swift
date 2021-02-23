@@ -54,6 +54,7 @@ final class RepositorySearchViewController: UIViewController {
     private func setupViews() {
         searchController.searchBar.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         _ = reloadSubscription
         
         navigationItem.searchController = searchController
@@ -87,5 +88,12 @@ extension RepositorySearchViewController: UITableViewDataSource {
         cell.inject(repository: searchStore.repositories[indexPath.row])
         
         return cell
+    }
+}
+
+extension RepositorySearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = searchStore.repositories[indexPath.row]
+        actionCreator.setSearchRepository(repository)
     }
 }
